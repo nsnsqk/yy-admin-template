@@ -40,10 +40,8 @@
     </el-menu>
 </template>
 
-<script>
-export default {
-    name: "index.vue"
-}
+<script setup>
+
 </script>
 
 <style scoped>
