@@ -4,8 +4,8 @@
             <side-bar/>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
-            <el-main>
+            <el-header style="background-color: #bfbfbf">Header</el-header>
+            <el-main style="background-color: antiquewhite">
                 <router-view/>
             </el-main>
         </el-container>
