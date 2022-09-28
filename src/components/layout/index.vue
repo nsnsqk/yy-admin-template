@@ -4,7 +4,9 @@
             <side-bar/>
         </el-aside>
         <el-container>
-            <el-header style="background-color: #bfbfbf">Header</el-header>
+            <el-header>
+                <app-header/>
+            </el-header>
             <el-main style="background-color: antiquewhite">
                 <router-view/>
             </el-main>
@@ -14,6 +16,7 @@
 
 <script setup>
 import SideBar from './sidebar/index.vue';
+import AppHeader from './header/index.vue';
 </script>
 
 <style scoped>
