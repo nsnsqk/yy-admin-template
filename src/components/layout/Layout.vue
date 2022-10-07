@@ -1,5 +1,5 @@
 <template>
-    <el-container>
+    <el-container class="container">
         <el-aside width="200px">
             <side-bar/>
         </el-aside>
@@ -15,10 +15,12 @@
 </template>
 
 <script setup>
-import SideBar from './sidebar/index.vue';
-import AppHeader from './header/index.vue';
+import SideBar from './sidebar/Sidebar.vue';
+import AppHeader from './header/Header.vue';
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.container {
+    height: 100%;
+}
 </style>

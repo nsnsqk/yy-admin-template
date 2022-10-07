@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Layout from '@/components/layout/index.vue'
+import Layout from '@/components/layout/Layout.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +11,7 @@ const router = createRouter({
             children: [
                 {
                     path: 'dashboard',
-                    component: () => import('@/views/dashboard/index.vue'),
+                    component: () => import('@/views/dashboard/dashboard.vue'),
                     name: 'Dashboard',
                     meta: {title: 'Dashboard', icon: 'dashboard', affix: true}
                 }

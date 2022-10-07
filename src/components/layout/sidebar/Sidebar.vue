@@ -2,7 +2,7 @@
     <el-menu
         active-text-color="#ffd04b"
         background-color="#545c64"
-        class="el-menu-vertical-demo"
+        class="side-bar"
         default-active="2"
         text-color="#fff"
         @open="handleOpen"
@@ -55,6 +55,8 @@ function handleClose() {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.side-bar {
+    height: 100%;
+}
 </style>
