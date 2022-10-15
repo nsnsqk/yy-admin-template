@@ -1,18 +1,16 @@
 <template>
     <el-menu
         active-text-color="#ffd04b"
-        background-color="#545c64"
+        background-color="#191a23"
         class="side-bar"
-        default-active="2"
+        default-active="0"
         text-color="#fff"
         @open="handleOpen"
         @close="handleClose"
     >
-        <el-menu-item index="2">
-            <el-icon>
-                <icon-menu/>
-            </el-icon>
-            <span>首页看板</span>
+        <el-menu-item index="0">
+            <el-icon><icon-menu/></el-icon>
+            <span>工作台</span>
         </el-menu-item>
         <el-sub-menu index="1">
             <template #title>
@@ -48,7 +46,8 @@
 <script setup>
 import {Location, Document, Setting, Menu as IconMenu} from "@element-plus/icons-vue";
 
-function handleOpen() {
+function handleOpen(index, indexPath) {
+    console.log('打开了', index, indexPath)
 }
 
 function handleClose() {

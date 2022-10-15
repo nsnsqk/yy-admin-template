@@ -7,13 +7,13 @@ const router = createRouter({
         {
             path: '/',
             component: Layout,
-            redirect: '/dashboard',
+            redirect: '/workbench',
             children: [
                 {
-                    path: 'dashboard',
-                    component: () => import('@/views/dashboard/dashboard.vue'),
-                    name: 'Dashboard',
-                    meta: {title: 'Dashboard', icon: 'dashboard', affix: true}
+                    path: 'workbench',
+                    component: () => import('@/views/workbench/workbench.vue'),
+                    name: 'workbench',
+                    meta: {title: '工作台', icon: 'dashboard', affix: true}
                 }
             ]
         }
