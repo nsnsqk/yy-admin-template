@@ -1,5 +1,6 @@
 <template>
     <el-menu
+        :collapse="!commonStore.sidebarOpen"
         active-text-color="#ffd04b"
         background-color="#191a23"
         class="side-bar"
@@ -30,7 +31,9 @@
 
 <script setup>
 import {Location, Menu as IconMenu} from "@element-plus/icons-vue";
+import { useCommonStore } from '@/stores/index.js';
 
+const commonStore = useCommonStore();
 
 </script>
 
