@@ -1,20 +1,18 @@
 <template>
-    <el-row class="header" align="middle">
-        <el-col :span="1">
-            <el-icon @click="changeSidebarOpen" class="menu-expand" :size="18">
-                <Expand v-if="commonStore.sidebarOpen"/>
-                <Fold v-else/>
-            </el-icon>
-        </el-col>
-        <el-col :span="23">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item :to="{ path: '/' }">工作台</el-breadcrumb-item>
-                <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-                <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
-            </el-breadcrumb>
-        </el-col>
-    </el-row>
+    <div class="header">
+        <el-icon @click="changeSidebarOpen" class="menu-expand" :size="18">
+            <Expand v-if="commonStore.sidebarOpen"/>
+            <Fold v-else/>
+        </el-icon>
 
+        <el-breadcrumb class="header-breadcrumb" separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }">工作台</el-breadcrumb-item>
+            <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+            <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+        </el-breadcrumb>
+
+        <div class="header-right">右侧内容</div>
+    </div>
 </template>
 
 
@@ -25,16 +23,32 @@ import { useCommonStore } from '@/stores/index.js';
 const commonStore = useCommonStore();
 function changeSidebarOpen() {
     commonStore.changeSidebarOpen();
-};
+}
 
 </script>
 
 <style scoped lang="scss">
-.menu-expand {
-
+.header {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    line-height: 60px;
 }
 
-.el-breadcrumb {
+.menu-expand {
+    width: 20px;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+}
 
+.header-breadcrumb {
+    flex: 1;
+    line-height: 60px;
+}
+
+
+.header-right {
+    width: 100px;
 }
 </style>
