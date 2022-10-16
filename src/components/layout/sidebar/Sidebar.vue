@@ -3,55 +3,35 @@
         active-text-color="#ffd04b"
         background-color="#191a23"
         class="side-bar"
-        default-active="0"
+        default-active="workbench"
         text-color="#fff"
-        @open="handleOpen"
-        @close="handleClose"
+        :router="true"
     >
-        <el-menu-item index="0">
+        <el-menu-item index="workbench">
             <el-icon><icon-menu/></el-icon>
             <span>工作台</span>
         </el-menu-item>
         <el-sub-menu index="1">
             <template #title>
-                <el-icon>
-                    <location/>
-                </el-icon>
-                <span>Navigator One</span>
+                <el-icon><location/></el-icon>
+                <span>列表页面</span>
             </template>
-
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-            <el-menu-item index="1-3">item three</el-menu-item>
-            <el-sub-menu index="1-4">
-                <template #title>item four</template>
-                <el-menu-item index="1-4-1">item one</el-menu-item>
-            </el-sub-menu>
+            <el-menu-item index="table">基础表格</el-menu-item>
         </el-sub-menu>
-        <el-menu-item index="2">
-            <el-icon>
-                <icon-menu/>
-            </el-icon>
-            <span>Navigator Two</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-            <el-icon>
-                <setting/>
-            </el-icon>
-            <span>Navigator Four</span>
-        </el-menu-item>
+        <el-sub-menu index="2">
+            <template #title>
+                <el-icon><location/></el-icon>
+                <span>多级菜单</span>
+            </template>
+            <el-menu-item index="menu-nesting">基础表格</el-menu-item>
+        </el-sub-menu>
     </el-menu>
 </template>
 
 <script setup>
-import {Location, Document, Setting, Menu as IconMenu} from "@element-plus/icons-vue";
+import {Location, Menu as IconMenu} from "@element-plus/icons-vue";
 
-function handleOpen(index, indexPath) {
-    console.log('打开了', index, indexPath)
-}
 
-function handleClose() {
-}
 </script>
 
 <style lang="scss" scoped>
