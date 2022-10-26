@@ -40,6 +40,7 @@ function changeSidebarOpen() {
     height: 60px;
     line-height: 60px;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .header-breadcrumb {

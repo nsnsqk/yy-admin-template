@@ -1,9 +1,9 @@
 <template>
-    <el-container class="container">
+    <el-container class="app-wrapper">
         <el-aside width="200px">
             <side-bar/>
         </el-aside>
-        <el-container>
+        <el-container class="app-container">
             <el-header>
                 <app-header/>
             </el-header>
@@ -20,7 +20,11 @@ import AppHeader from './header/Header.vue';
 </script>
 
 <style lang="scss" scoped>
-.container {
+.app-wrapper {
     height: 100%;
+    display: flex;
+}
+.app-container {
+
 }
 </style>
