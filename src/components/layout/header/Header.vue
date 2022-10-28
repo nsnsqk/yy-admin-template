@@ -30,26 +30,20 @@ function changeSidebarOpen() {
 <style scoped lang="scss">
 .header {
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    line-height: 60px;
-}
+    align-items: center;
 
-.menu-expand {
-    width: 20px;
-    height: 60px;
-    line-height: 60px;
-    cursor: pointer;
-    margin-right: 10px;
-}
+    .menu-expand {
+        cursor: pointer;
+        margin-right: 10px;
+    }
 
-.header-breadcrumb {
-    flex: 1;
-    line-height: 60px;
-}
+    .header-breadcrumb {
+        flex: 1;
+    }
 
-
-.header-right {
-    width: 100px;
+    .header-right {
+        width: 100px;
+        line-height: 60px;
+    }
 }
 </style>
