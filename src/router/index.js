@@ -22,10 +22,10 @@ const router = createRouter({
                     meta: {title: '基础列表', icon: 'dashboard', affix: true}
                 },
                 {
-                    path: 'menu-nesting',
-                    name: 'menu-nesting1',
-                    component: () => import('@/views/table/table.vue'),
-                    meta: {title: '多级菜单', icon: 'dashboard', affix: true}
+                    path: '404',
+                    name: '404',
+                    component: () => import('@/views/error/404.vue'),
+                    meta: {title: '404页面', icon: 'dashboard', affix: true}
                 }
             ]
         }
