@@ -21,10 +21,10 @@ import AppHeader from './header/Header.vue';
 
 <style lang="scss" scoped>
 .app-wrapper {
-    height: 100%;
     display: flex;
+    height: 100%;
 }
 .app-container {
-
+    flex: 1
 }
 </style>
