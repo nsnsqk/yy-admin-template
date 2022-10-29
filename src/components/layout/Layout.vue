@@ -1,8 +1,6 @@
 <template>
     <el-container class="app-wrapper">
-        <el-aside width="200px">
-            <side-bar/>
-        </el-aside>
+        <side-bar/>
         <el-container class="app-container">
             <el-header>
                 <app-header/>
@@ -17,6 +15,7 @@
 <script setup>
 import SideBar from './sidebar/Sidebar.vue';
 import AppHeader from './header/Header.vue';
+
 </script>
 
 <style lang="scss" scoped>
@@ -24,7 +23,9 @@ import AppHeader from './header/Header.vue';
     display: flex;
     height: 100%;
 }
+
 .app-container {
     flex: 1
 }
+
 </style>
