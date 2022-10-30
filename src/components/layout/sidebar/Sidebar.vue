@@ -10,7 +10,7 @@
                      :default-active="activeMenu"
                      text-color="#fff"
                      :router="true">
-                <el-menu-item index="/workbench">
+<!--                <el-menu-item index="/workbench">
                     <el-icon>
                         <icon-menu/>
                     </el-icon>
@@ -21,9 +21,9 @@
                         <el-icon>
                             <location/>
                         </el-icon>
-                        <span>列表页面</span>
+                        <span>表格页面</span>
                     </template>
-                    <el-menu-item index="/table">基础表格</el-menu-item>
+                    <el-menu-item index="/table/basic-table">基础表格</el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="2">
                     <template #title>
@@ -32,8 +32,12 @@
                         </el-icon>
                         <span>错误页面</span>
                     </template>
-                    <el-menu-item index="/404">404页面</el-menu-item>
-                </el-sub-menu>
+                    <el-menu-item index="/error/404">404页面</el-menu-item>
+                </el-sub-menu>-->
+                <sidebar-item v-for="routeItem of allRoutes"
+                              :key="routeItem.path"
+                              :route-item="routeItem"
+                              :base-path="routeItem.path"/>
             </el-menu>
         </el-scrollbar>
     </section>
@@ -41,9 +45,11 @@
 
 <script setup>
 import {computed} from 'vue';
-import {Location, Menu as IconMenu} from "@element-plus/icons-vue";
-import {useCommonStore} from '@/stores/index.js';
 import {useRoute} from 'vue-router'
+import {Location, Menu as IconMenu} from "@element-plus/icons-vue";
+import SidebarItem from '@/components/layout/sidebar/SidebarItem.vue';
+import {useCommonStore} from '@/stores/index.js';
+import {constantRoutes} from "@/router/index.js";
 
 const commonStore = useCommonStore();
 
@@ -55,6 +61,10 @@ let activeMenu = computed(() => {
         return meta.activeMenu
     }
     return path
+})
+
+const allRoutes = computed(() => {
+    return constantRoutes;
 })
 
 
