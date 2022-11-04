@@ -6,9 +6,8 @@
         </el-icon>
 
         <el-breadcrumb class="header-breadcrumb" separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">工作台</el-breadcrumb-item>
-            <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-            <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="item of breadcrumbList" :key="item.path">{{ item.meta.title }}
+            </el-breadcrumb-item>
         </el-breadcrumb>
 
         <div class="header-right">右侧内容</div>
@@ -17,14 +16,21 @@
 
 
 <script setup>
+import {computed} from 'vue';
+import {useRoute, onBeforeRouteLeave} from 'vue-router';
 import {Fold, Expand} from "@element-plus/icons-vue";
-import { useCommonStore } from '@/stores/index.js';
+import {useCommonStore} from '@/stores/index.js';
 
+const route = useRoute();
 const commonStore = useCommonStore();
-function changeSidebarOpen() {
+
+const changeSidebarOpen = () => {
     commonStore.changeSidebarOpen();
 }
 
+const breadcrumbList = computed(() => {
+    return route.matched.filter(item => item.meta?.title);
+})
 </script>
 
 <style scoped lang="scss">

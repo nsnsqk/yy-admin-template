@@ -36,7 +36,7 @@ const props = defineProps(['routeItem', 'basePath']);
 /*
  * 当前节点的子节点数量
  * 0: 此节点即为菜单节点
- * 1: 只有一个child，则父目录节点替换为该child的路由配置；
+ * 1: 只有一个child，则父目录节点替换为该child的路由配置
  */
 let children = props.routeItem.children || []
 const childAmount = computed(() => children.filter(item => !item.meta?.hideMenu).length)
