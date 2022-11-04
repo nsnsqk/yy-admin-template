@@ -10,7 +10,24 @@
             </el-breadcrumb-item>
         </el-breadcrumb>
 
-        <div class="header-right">右侧内容</div>
+        <div class="header-right">
+            <el-icon :size="18" class="notice-bell"><Bell /></el-icon>
+            <el-dropdown class="avatar-container">
+                <span class="el-dropdown-link">
+                <el-avatar shape="square" :size="35" src="//portrait.gitee.com/uploads/avatars/user/248/745245_2016Young_1578931951.png!avatar200" />
+                  那时年少轻狂
+                </span>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item>
+                            <el-icon><Avatar /></el-icon>个人中心
+                        </el-dropdown-item>
+                        <el-dropdown-item><el-icon><HomeFilled /></el-icon>首页</el-dropdown-item>
+                        <el-dropdown-item divided>退出</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+        </div>
     </div>
 </template>
 
@@ -18,7 +35,7 @@
 <script setup>
 import {computed} from 'vue';
 import {useRoute, onBeforeRouteLeave} from 'vue-router';
-import {Fold, Expand} from "@element-plus/icons-vue";
+import {Fold, Expand, HomeFilled, Avatar, Bell} from "@element-plus/icons-vue";
 import {useCommonStore} from '@/stores/index.js';
 
 const route = useRoute();
@@ -48,8 +65,27 @@ const breadcrumbList = computed(() => {
     }
 
     .header-right {
-        width: 100px;
         line-height: 60px;
+
+        .avatar-container {
+            line-height: 60px;
+            padding: 0 15px;
+            .el-avatar {
+                vertical-align: middle;
+            }
+            &:hover {
+                background-color: #f5f7f9;
+            }
+        }
+
+        .notice-bell {
+            height: 60px;
+            width: 40px;
+            margin-right: 20px;
+            &:hover {
+                background-color: #f5f7f9;
+            }
+        }
     }
 }
 </style>
