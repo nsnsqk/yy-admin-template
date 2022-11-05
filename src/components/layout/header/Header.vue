@@ -11,10 +11,10 @@
         </el-breadcrumb>
 
         <div class="header-right">
-            <el-badge :value="3" class="bell-badge">
+            <el-badge :value="3" class="bell-badge hover-gray">
                 <el-icon :size="18" class="notice-bell"><Bell /></el-icon>
             </el-badge>
-            <el-dropdown class="avatar-container">
+            <el-dropdown class="avatar-container hover-gray">
                 <span class="el-dropdown-link">
                 <el-avatar shape="square" :size="35" src="//portrait.gitee.com/uploads/avatars/user/248/745245_2016Young_1578931951.png!avatar200" />
                   那时年少轻狂
@@ -75,24 +75,28 @@ const breadcrumbList = computed(() => {
             .el-avatar {
                 vertical-align: middle;
             }
-            &:hover {
-                background-color: #f5f7f9;
-            }
         }
 
         .bell-badge {
+            display: inline-flex;
+
             .notice-bell {
                 height: 60px;
                 width: 40px;
-                &:hover {
-                    background-color: #f5f7f9;
-                }
             }
-            :deep(.el-badge__content .is-fixed) {
-                background-color: #67c23a;
+            :deep(.el-badge__content.is-fixed) {
+                top: 21px;
+                right: 21px;
             }
         }
 
+    }
+}
+
+.hover-gray {
+    &:hover {
+        background-color: #f5f7f9;
+        cursor: pointer;
     }
 }
 </style>
