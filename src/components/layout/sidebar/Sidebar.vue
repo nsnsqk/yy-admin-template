@@ -10,30 +10,6 @@
                      :default-active="activeMenu"
                      text-color="#fff"
                      :router="true">
-<!--                <el-menu-item index="/workbench">
-                    <el-icon>
-                        <icon-menu/>
-                    </el-icon>
-                    <span>工作台</span>
-                </el-menu-item>
-                <el-sub-menu index="1">
-                    <template #title>
-                        <el-icon>
-                            <location/>
-                        </el-icon>
-                        <span>表格页面</span>
-                    </template>
-                    <el-menu-item index="/table/basic-table">基础表格</el-menu-item>
-                </el-sub-menu>
-                <el-sub-menu index="2">
-                    <template #title>
-                        <el-icon>
-                            <location/>
-                        </el-icon>
-                        <span>错误页面</span>
-                    </template>
-                    <el-menu-item index="/error/404">404页面</el-menu-item>
-                </el-sub-menu>-->
                 <sidebar-item v-for="routeItem of allRoutes"
                               :key="routeItem.path"
                               :route-item="routeItem"

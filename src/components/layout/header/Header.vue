@@ -11,7 +11,9 @@
         </el-breadcrumb>
 
         <div class="header-right">
-            <el-icon :size="18" class="notice-bell"><Bell /></el-icon>
+            <el-badge :value="3" class="bell-badge">
+                <el-icon :size="18" class="notice-bell"><Bell /></el-icon>
+            </el-badge>
             <el-dropdown class="avatar-container">
                 <span class="el-dropdown-link">
                 <el-avatar shape="square" :size="35" src="//portrait.gitee.com/uploads/avatars/user/248/745245_2016Young_1578931951.png!avatar200" />
@@ -78,14 +80,19 @@ const breadcrumbList = computed(() => {
             }
         }
 
-        .notice-bell {
-            height: 60px;
-            width: 40px;
-            margin-right: 20px;
-            &:hover {
-                background-color: #f5f7f9;
+        .bell-badge {
+            .notice-bell {
+                height: 60px;
+                width: 40px;
+                &:hover {
+                    background-color: #f5f7f9;
+                }
+            }
+            :deep(.el-badge__content .is-fixed) {
+                background-color: #67c23a;
             }
         }
+
     }
 }
 </style>
