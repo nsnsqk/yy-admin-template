@@ -12,19 +12,30 @@
 
         <div class="header-right">
             <el-badge :value="3" class="bell-badge hover-gray">
-                <el-icon :size="18" class="notice-bell"><Bell /></el-icon>
+                <el-icon :size="18" class="notice-bell">
+                    <Bell/>
+                </el-icon>
             </el-badge>
             <el-dropdown class="avatar-container hover-gray">
                 <span class="el-dropdown-link">
-                <el-avatar shape="square" :size="35" src="//portrait.gitee.com/uploads/avatars/user/248/745245_2016Young_1578931951.png!avatar200" />
+                <el-avatar shape="square" :size="35"
+                           src="//portrait.gitee.com/uploads/avatars/user/248/745245_2016Young_1578931951.png!avatar200"/>
                   那时年少轻狂
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu>
                         <el-dropdown-item>
-                            <el-icon><Avatar /></el-icon>个人中心
+                            <el-icon>
+                                <Avatar/>
+                            </el-icon>
+                            个人中心
                         </el-dropdown-item>
-                        <el-dropdown-item><el-icon><HomeFilled /></el-icon>首页</el-dropdown-item>
+                        <el-dropdown-item>
+                            <el-icon>
+                                <HomeFilled/>
+                            </el-icon>
+                            首页
+                        </el-dropdown-item>
                         <el-dropdown-item divided>退出</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
@@ -56,6 +67,8 @@ const breadcrumbList = computed(() => {
 .header {
     display: flex;
     align-items: center;
+    padding-left: 20px;
+    box-shadow: 0px -3px 10px -1px rgb(0 0 0 / 30%);
 
     .menu-expand {
         cursor: pointer;
@@ -72,6 +85,7 @@ const breadcrumbList = computed(() => {
         .avatar-container {
             line-height: 60px;
             padding: 0 15px;
+
             .el-avatar {
                 vertical-align: middle;
             }
@@ -84,6 +98,7 @@ const breadcrumbList = computed(() => {
                 height: 60px;
                 width: 40px;
             }
+
             :deep(.el-badge__content.is-fixed) {
                 top: 21px;
                 right: 21px;
