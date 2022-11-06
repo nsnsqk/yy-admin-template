@@ -24,7 +24,7 @@ import {computed} from 'vue';
 import {useRoute} from 'vue-router'
 import {Location, Menu as IconMenu} from "@element-plus/icons-vue";
 import SidebarItem from '@/components/layout/sidebar/SidebarItem.vue';
-import {useCommonStore} from '@/stores/commonStore.js';
+import {useCommonStore} from '@/stores/common.js';
 import {constantRoutes} from "@/router/index.js";
 
 const commonStore = useCommonStore();

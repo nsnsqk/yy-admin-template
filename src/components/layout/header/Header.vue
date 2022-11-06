@@ -49,7 +49,7 @@
 import {computed} from 'vue';
 import {useRoute, onBeforeRouteLeave} from 'vue-router';
 import {Fold, Expand, HomeFilled, Avatar, Bell} from "@element-plus/icons-vue";
-import {useCommonStore} from '@/stores/commonStore.js';
+import {useCommonStore} from '@/stores/common.js';
 
 const route = useRoute();
 const commonStore = useCommonStore();
