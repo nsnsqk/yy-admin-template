@@ -1,11 +1,14 @@
 <template>
     <el-scrollbar>
         <div class="tag-container">
-            <div class="tag-item" v-for="i of 50">
+            <div class="tag-item"
+                 v-for="tag of tagList" :key="tag.path"
+                 @click="changeTag(tag)"
+            >
                 <el-icon>
                     <PictureFilled/>
                 </el-icon>
-                <span class="tag-name">标签{{ i }}</span>
+                <span class="tag-name">{{ tag.title }}</span>
                 <el-icon class="tag-close">
                     <Close/>
                 </el-icon>
@@ -15,7 +18,36 @@
 </template>
 
 <script setup>
+import {ref, reactive, watch} from 'vue';
+import {useRoute, onBeforeRouteLeave} from 'vue-router';
 import {Close, PictureFilled} from "@element-plus/icons-vue";
+
+const tagList = reactive([]);
+const route = useRoute();
+
+const changeTag = (tag) => {
+    if (tag) {
+        // 点击标签：不再 push到 tagList 中
+
+    } else {
+        tagList.push({
+            icon: route.meta?.icon,
+            title: route.meta?.title,
+            path: route.path
+        })
+    }
+}
+
+console.log(JSON.stringify(route))
+watch(
+    () => route.path,
+    (newPath) => {
+        changeTag();
+    },
+    {immediate: true}
+)
+
+
 </script>
 
 <style lang="scss" scoped>
