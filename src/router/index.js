@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
+import addPermissionGuard from "@/router/permission-guard";
 import Layout from '@/components/layout/Layout.vue'
 
 export const constantRoutes = [
@@ -44,6 +45,11 @@ export const constantRoutes = [
                 meta: {title: '404页面', icon: 'dashboard'}
             }
         ]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login/login.vue'),
     }
 ]
 
@@ -51,5 +57,5 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: constantRoutes
 })
-
+addPermissionGuard(router);
 export default router
