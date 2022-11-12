@@ -2,7 +2,7 @@
     <section class="yy-side-container">
         <div class="logo">logo区域</div>
 
-        <el-scrollbar class="yy-side-scrollbar">
+        <el-scrollbar>
             <el-menu :collapse="!commonStore.sidebarOpen"
                      active-text-color="#ffd04b"
                      background-color="#191a23"
@@ -56,8 +56,8 @@ const allRoutes = computed(() => {
         color: white;
     }
 
-    .yy-side-bar {
-
+    .el-menu {
+        border-right: none;
     }
 }
 
