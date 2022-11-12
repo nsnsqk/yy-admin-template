@@ -2,6 +2,7 @@
     <el-scrollbar>
         <div class="tag-container">
             <div class="tag-item"
+                 :class="{active: tag.path === currentObj.currentTag.path}"
                  v-for="tag of tagList" :key="tag.path"
                  @click="changeTag(tag)"
             >
@@ -9,7 +10,7 @@
                     <PictureFilled/>
                 </el-icon>
                 <span class="tag-name">{{ tag.title }}</span>
-                <el-icon class="tag-close">
+                <el-icon @click.stop="closeTag(tag)" class="tag-close">
                     <Close/>
                 </el-icon>
             </div>
@@ -19,33 +20,51 @@
 
 <script setup>
 import {ref, reactive, watch} from 'vue';
-import {useRoute, onBeforeRouteLeave} from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 import {Close, PictureFilled} from "@element-plus/icons-vue";
 
-const tagList = reactive([]);
 const route = useRoute();
+const router = useRouter();
+const tagList = reactive([]);
+const currentObj = reactive({currentTag: {}});
 
-const changeTag = (tag) => {
-    if (tag) {
-        // 点击标签：不再 push到 tagList 中
-
-    } else {
-        tagList.push({
-            icon: route.meta?.icon,
-            title: route.meta?.title,
-            path: route.path
-        })
-    }
-}
-
-console.log(JSON.stringify(route))
 watch(
     () => route.path,
-    (newPath) => {
-        changeTag();
+    newPath => {
+        if (currentObj.currentTag.path === route.path) {
+            return;
+        }
+
+        for (const item of tagList) {
+            if (item.path === newPath) {
+                currentObj.currentTag = item;
+                return;
+            }
+        }
+
+        currentObj.currentTag = {
+            icon: route.meta?.icon,
+            title: route.meta?.title,
+            path: newPath
+        }
+        tagList.push(currentObj.currentTag)
+
     },
     {immediate: true}
 )
+
+const changeTag = tag => {
+    currentObj.currentTag = tag;
+    router.push(tag.path);
+}
+
+const closeTag = tag => {
+    tagList.splice(tagList.findIndex(item => item.path === tag.path), 1);
+    const lastTag = tagList[tagList.length - 1];
+    if (lastTag && currentObj.currentTag.path === tag.path) {
+        changeTag(lastTag);
+    }
+}
 
 
 </script>
@@ -76,6 +95,10 @@ watch(
         &:hover {
             background-color: rgb(226, 228, 230);
             cursor: default;
+        }
+
+        &.active {
+            background-color: rgb(226, 228, 230);
         }
 
         .tag-name {
