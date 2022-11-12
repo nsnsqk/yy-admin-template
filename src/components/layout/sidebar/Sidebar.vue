@@ -31,12 +31,11 @@ const commonStore = useCommonStore();
 
 // 高亮菜单
 const route = useRoute()
-const { meta, path } = route
 let activeMenu = computed(() => {
-    if (meta.activeMenu) {
-        return meta.activeMenu
+    if (route.meta.activeMenu) {
+        return route.meta.activeMenu
     }
-    return path
+    return route.path
 })
 
 const allRoutes = computed(() => {
