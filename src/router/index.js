@@ -8,7 +8,7 @@ export const constantRoutes = [
         redirect: '/workbench',
         meta: {
             title: '工作台',
-            alwaysShowDirectory: true
+            affix: true
         },
         children: [
             {
@@ -28,7 +28,7 @@ export const constantRoutes = [
                 path: 'basic-table',
                 name: 'basic-table',
                 component: () => import('@/views/table/basic-table.vue'),
-                meta: {title: '基础列表', icon: 'dashboard', affix: true}
+                meta: {title: '基础列表', icon: 'dashboard'}
             }
         ]
     },
@@ -41,7 +41,7 @@ export const constantRoutes = [
                 path: '404',
                 name: '404',
                 component: () => import('@/views/error/404.vue'),
-                meta: {title: '404页面', icon: 'dashboard', affix: true}
+                meta: {title: '404页面', icon: 'dashboard'}
             }
         ]
     }

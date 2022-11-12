@@ -10,7 +10,7 @@
                     <PictureFilled/>
                 </el-icon>
                 <span class="tag-name">{{ tag.title }}</span>
-                <el-icon @click.stop="closeTag(tag)" class="tag-close">
+                <el-icon v-if="!tag.affix" @click.stop="closeTag(tag)" class="tag-close">
                     <Close/>
                 </el-icon>
             </div>
@@ -43,9 +43,10 @@ watch(
         }
 
         currentObj.currentTag = {
+            path: newPath,
             icon: route.meta?.icon,
             title: route.meta?.title,
-            path: newPath
+            affix: route.meta?.affix
         }
         tagList.push(currentObj.currentTag)
 
