@@ -55,7 +55,6 @@ const allRoutes = computed(() => {
 
     .logo {
         height: 60px;
-        color: white;
 
         .logo-svg {
             width: 30px;
@@ -63,6 +62,7 @@ const allRoutes = computed(() => {
             vertical-align: middle;
         }
         .logo-text {
+            color: white;
             font-size: 16px;
             font-weight: 900;
             margin-left: 15px;
