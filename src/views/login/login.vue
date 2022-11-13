@@ -30,7 +30,8 @@
                         </el-icon>
                     </template>
                 </el-input>
-                <el-button type="primary" size="large">登录</el-button>
+                <el-checkbox v-model="rememberMe" label="记住密码" size="large" class="remember-me" />
+                <el-button @click="doLogin" type="primary" size="large">登 录</el-button>
             </div>
         </div>
     </div>
@@ -38,7 +39,9 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
+import {useRouter} from 'vue-router';
 import {User, Lock} from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus';
 import lottie from "lottie-web";
 import bgImg from '@/assets/images/login-bg.webp';
 import loginLottie from '@/assets/lottie/数据.json';
@@ -55,8 +58,19 @@ onMounted(() => {
     })
 })
 
+const router = useRouter();
 let account = ref('');
 let password = ref('');
+let rememberMe = ref(true);
+const doLogin = () => {
+    console.log('这是登录方法')
+    if (account !== 'admin') {
+        ElMessage.error('用户名不正确！')
+        return;
+    }
+    localStorage.setItem('login-token', 'admin');
+    router.push('/');
+}
 
 </script>
 
@@ -73,8 +87,10 @@ let password = ref('');
         display: flex;
         width: 700px;
         height: 400px;
-        background-color: #fff;
         justify-content: space-between;
+        box-shadow: 0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017;
+        background: rgba(241, 245, 251, .5);
+        border-radius: 10px;
 
         .login-lottie {
             position: relative;
@@ -102,6 +118,12 @@ let password = ref('');
             .login-input {
                 height: 40px;
                 width: 250px;
+                margin-bottom: 20px;
+            }
+
+            .remember-me {
+                align-self: flex-start;
+                margin-left: 50px;
                 margin-bottom: 20px;
             }
 
