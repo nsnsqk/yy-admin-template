@@ -30,7 +30,7 @@
                         </el-icon>
                     </template>
                 </el-input>
-                <el-checkbox v-model="rememberMe" label="记住密码" size="large" class="remember-me" />
+                <el-checkbox v-model="rememberMe" label="记住密码" size="large" class="remember-me"/>
                 <el-button @click="doLogin" type="primary" size="large">登 录</el-button>
             </div>
         </div>
@@ -73,6 +73,15 @@ const doLogin = () => {
 </script>
 
 <style scoped lang="scss">
+@font-face {
+    font-family: "阿里巴巴普惠体 2.0 115 Black";
+    font-weight: 1000;
+    src: url("//at.alicdn.com/wf/webfont/noYsgf4SbGoO/6UxHUtq4M2HDg2OTmzQeD.woff2") format("woff2"),
+    url("//at.alicdn.com/wf/webfont/noYsgf4SbGoO/6MSZF8fcwA-5HVMKM0oKr.woff") format("woff");
+    font-display: swap;
+}
+
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -109,7 +118,9 @@ const doLogin = () => {
                 margin-bottom: 20px;
 
                 .login-title-text {
+                    color: rgba(62, 60, 60, 0.69);
                     margin-left: 10px;
+                    font-family: "阿里巴巴普惠体 2.0 115 Black", system-ui;
                 }
             }
 
