@@ -41,7 +41,6 @@
 import {ref, onMounted} from 'vue';
 import {useRouter} from 'vue-router';
 import {User, Lock} from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus';
 import lottie from "lottie-web";
 import bgImg from '@/assets/images/login-bg.webp';
 import loginLottie from '@/assets/lottie/数据.json';
@@ -63,13 +62,12 @@ let account = ref('');
 let password = ref('');
 let rememberMe = ref(true);
 const doLogin = () => {
-    console.log('这是登录方法')
-    if (account !== 'admin') {
-        ElMessage.error('用户名不正确！')
+    if (account.value !== 'admin') {
+        ElMessage.error('用户名不正确！');
         return;
     }
     localStorage.setItem('login-token', 'admin');
-    router.push('/');
+    router.replace({path: '/'});
 }
 
 </script>

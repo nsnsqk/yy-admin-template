@@ -36,7 +36,7 @@
                             </el-icon>
                             首页
                         </el-dropdown-item>
-                        <el-dropdown-item divided>退出</el-dropdown-item>
+                        <el-dropdown-item divided @click="logout">退出</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -47,7 +47,7 @@
 
 <script setup>
 import {computed} from 'vue';
-import {useRoute, onBeforeRouteLeave} from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 import {Fold, Expand, HomeFilled, Avatar, Bell} from "@element-plus/icons-vue";
 import {useCommonStore} from '@/stores/common.js';
 
@@ -61,6 +61,12 @@ const changeSidebarOpen = () => {
 const breadcrumbList = computed(() => {
     return route.matched.filter(item => item.meta?.title);
 })
+
+const router = useRouter();
+const logout = () => {
+    localStorage.removeItem('login-token');
+    router.replace({path: '/login'});
+}
 </script>
 
 <style scoped lang="scss">
