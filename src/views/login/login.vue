@@ -43,7 +43,7 @@ import {useRouter} from 'vue-router';
 import {User, Lock} from '@element-plus/icons-vue'
 import lottie from "lottie-web";
 import bgImg from '@/assets/images/login-bg.webp';
-import loginLottie from '@/assets/lottie/数据.json';
+import loginLottie from '@/assets/lottie/login-lottie.json';
 import Logo from '@/components/icon/Logo.vue';
 
 const lottieRef = ref(null);
