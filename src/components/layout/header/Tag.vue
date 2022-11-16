@@ -21,12 +21,32 @@
 <script setup>
 import {ref, reactive, watch} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
+import path from 'path-browserify';
 import {Close, PictureFilled} from "@element-plus/icons-vue";
 
 const route = useRoute();
 const router = useRouter();
 const tagList = reactive([]);
 const currentObj = reactive({currentTag: {}});
+
+const getAffixTag = (routesArr, fullPath) => {
+    routesArr.forEach(routeItem => {
+        if (!routeItem.children || routeItem.children.length <= 0) {
+            const meta = routeItem.meta || {};
+            if (meta.affix) {
+                tagList.push({
+                    path: path.resolve(fullPath, routeItem.path),
+                    icon: meta.icon,
+                    title: meta.title,
+                    affix: meta.affix
+                })
+            }
+        } else {
+            getAffixTag(routeItem.children, path.resolve(fullPath, routeItem.path));
+        }
+    })
+}
+getAffixTag(router.options.routes, '');
 
 watch(
     () => route.path,
