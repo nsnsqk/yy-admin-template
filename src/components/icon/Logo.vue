@@ -1,9 +1,15 @@
 <template>
-    <img class="logo-img" src="../../assets/images/logo.png" alt="logo">
+    <img class="logo-img" :style="styleObject" src="../../assets/images/logo.png" alt="logo">
 </template>
 
 <script setup>
+import {reactive} from 'vue';
 
+const props = defineProps(['bgColor']);
+const styleObject = reactive({});
+if (props.bgColor) {
+    styleObject.backgroundColor = props.bgColor;
+}
 </script>
 
 <style scoped lang="scss">
