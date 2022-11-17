@@ -23,9 +23,10 @@ import {ref, reactive, watch} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
 import path from 'path-browserify';
 import {Close, PictureFilled} from "@element-plus/icons-vue";
+import {businessRoutes} from "@/router/index.js";
 
-const route = useRoute();
 const router = useRouter();
+const route = useRoute();
 const tagList = reactive([]);
 const currentObj = reactive({currentTag: {}});
 
@@ -46,7 +47,7 @@ const getAffixTag = (routesArr, fullPath) => {
         }
     })
 }
-getAffixTag(router.options.routes, '');
+getAffixTag(businessRoutes, '');
 
 watch(
     () => route.path,
