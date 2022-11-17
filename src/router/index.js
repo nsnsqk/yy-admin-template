@@ -4,6 +4,19 @@ import Layout from '@/components/layout/Layout.vue'
 
 export const constantRoutes = [
     {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login/login.vue'),
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/views/error/404.vue')
+    }
+]
+
+export const businessRoutes = [
+    {
         path: '/',
         component: Layout,
         redirect: '/workbench',
@@ -32,30 +45,12 @@ export const constantRoutes = [
                 meta: {title: '基础列表', icon: 'dashboard'}
             }
         ]
-    },
-    {
-        path: '/error',
-        component: Layout,
-        meta: {title: '错误页面'},
-        children: [
-            {
-                path: '404',
-                name: '404',
-                component: () => import('@/views/error/404.vue'),
-                meta: {title: '404页面', icon: 'dashboard'}
-            }
-        ]
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/views/login/login.vue'),
     }
 ]
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    routes: constantRoutes
+    routes: businessRoutes.concat(constantRoutes)
 })
 addPermissionGuard(router);
 export default router
